@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "403880886141",
+    "project_id": "onlinequeue-a97cf",
+    "storage_bucket": "onlinequeue-a97cf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:403880886141:android:5624e9e26b67dc95bf9614",
+        "android_client_info": {
+          "package_name": "com.example.onlinequeue"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6yB-K_Ti6Pgpe2D2od7ZwBw-uvtswW7A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

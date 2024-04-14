@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/btnCreateQueue"
+        android:layout_width="240dp"
+        android:layout_height="145dp"
+        android:layout_marginTop="94dp"
+        android:onClick="onClickCreate"
+        android:text="Create Queue"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="@+id/btnJoinQueue"
+        app:layout_constraintTop_toBottomOf="@+id/etNameUser" />
+
+    <Button
+        android:id="@+id/btnJoinQueue"
+        android:layout_width="240dp"
+        android:layout_height="145dp"
+        android:layout_marginTop="52dp"
+        android:onClick="onClickJoin"
+        android:text="Join the queue"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnCreateQueue" />
+
+    <EditText
+        android:id="@+id/etNameUser"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="60dp"
+        android:hint="псевдонім"
+        app:layout_constraintEnd_toEndOf="@+id/btnCreateQueue"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/btnCreateQueue"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
