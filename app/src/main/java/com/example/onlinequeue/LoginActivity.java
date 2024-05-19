@@ -8,11 +8,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -24,16 +22,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-
 public class LoginActivity extends AppCompatActivity {
-
-
     private EditText etEmail, etPassword;
     private TextView etUserEmail;
     private Button btnStart, btnSignUp, btnSignIn, btnExit;
     private FirebaseAuth myAuth;
     private FirebaseUser cUser;
-
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -108,7 +102,6 @@ public class LoginActivity extends AppCompatActivity {
                         notShowSigned();
                         Toast.makeText(LoginActivity.this, "Зареєструватися не вдалося", Toast.LENGTH_SHORT).show();
                     }
-
                 }
             });
         }
@@ -172,12 +165,9 @@ public class LoginActivity extends AppCompatActivity {
                 Intent i = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(i);
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                // Обробка помилки
             }
         });
     }
-
 }

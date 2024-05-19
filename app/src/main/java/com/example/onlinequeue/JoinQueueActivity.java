@@ -1,16 +1,13 @@
 package com.example.onlinequeue;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Message;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
@@ -21,13 +18,10 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.messaging.FirebaseMessaging;
 import com.google.firebase.messaging.RemoteMessage;
 
-
 public class JoinQueueActivity extends AppCompatActivity {
-
     private EditText etNameForJoin;
     private DatabaseReference myDataBase;
     User newUser = new User();
-
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -71,10 +65,8 @@ public class JoinQueueActivity extends AppCompatActivity {
                         Toast.makeText(JoinQueueActivity.this, "Черги не існує", Toast.LENGTH_SHORT).show();
                     }
                 }
-
                 @Override
                 public void onCancelled(@NonNull DatabaseError error) {
-
                 }
             });
         }
@@ -98,9 +90,5 @@ public class JoinQueueActivity extends AppCompatActivity {
         RemoteMessage.Builder builder = new RemoteMessage.Builder(token)
             .addData("title", "TestTitle")
             .addData("body", "TestTitle");
-
     }
-
-
-
 }

@@ -1,21 +1,16 @@
 package com.example.onlinequeue;
-
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -24,17 +19,13 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
-
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
 public class ShowActivity extends AppCompatActivity {
-
     private ListView listView;
     private ArrayAdapter<String> adapter;
     private List<String> listData;
@@ -43,7 +34,6 @@ public class ShowActivity extends AppCompatActivity {
 
     private TextView etNameOfQueue, etInfName, etInfEmail, editTextNumber,
             staticWelcome, staticWelcome2, staticText;
-
     private DatabaseReference myDataBase;
     private String tempName;
     private FirebaseAuth myAuth;
@@ -54,6 +44,7 @@ public class ShowActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.read_layout);
+
         init();
         moderVeref();
     }
@@ -72,11 +63,9 @@ public class ShowActivity extends AppCompatActivity {
                             showModerator();
                             updateQuePos();
                             myDataBase.child("USERS").child(cUser.getUid()).removeValue();
-
                         }
                         else showUser();
                     }
-
                 }
             }
         });
@@ -111,7 +100,6 @@ public class ShowActivity extends AppCompatActivity {
 
     private void getDataFromDB()
     {
-
         myDataBase.child("USERS").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -134,10 +122,8 @@ public class ShowActivity extends AppCompatActivity {
                 }
                 adapter.notifyDataSetChanged();
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
             }
         });
     }
@@ -146,7 +132,6 @@ public class ShowActivity extends AppCompatActivity {
     public void onBackPressed() {
         showConfirmationDialog();
     }
-
     private void showConfirmationDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Вихід");
@@ -166,7 +151,6 @@ public class ShowActivity extends AppCompatActivity {
                             }
                             finish();
                         }
-
                         @Override
                         public void onCancelled(@NonNull DatabaseError error) {
                             finish();
@@ -195,7 +179,8 @@ public class ShowActivity extends AppCompatActivity {
 
     private void updateQuePos() {
         int newNumOfPeople = 0;
-        for (User user : listTemp) {
+        for (User user : listTemp)
+        {
             newNumOfPeople++;
             int newQuePos = user.quePos - 1;
             myDataBase.child("USERS").child(user.id).child("quePos").setValue(newQuePos);
@@ -212,7 +197,6 @@ public class ShowActivity extends AppCompatActivity {
         etInfName.setVisibility(View.VISIBLE);
         staticText.setVisibility(View.VISIBLE);
         btnSkip.setVisibility(View.VISIBLE);
-
         getDataFromDB();
     }
 
@@ -229,7 +213,6 @@ public class ShowActivity extends AppCompatActivity {
         staticWelcome.setText(cUser.getEmail() + ", ви знаходитесь в черзі під номером");
         updatePos();
     }
-
 
     private void updatePos()
     {
